@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: ms-one
+  config:
+    import: configserver:http://localhost:8888
+  datasource:
+      username: sa
+      password: 
+      url: jdbc:h2:mem:testdb
+      driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      
+      discovery:
+        register : true
+        deregister: true
+        healthCheckPath: ${server.servlet.context-path}/health
+        instance-id: ${spring.application.name}- ${spring.cloud.client.ip - address }- $ { server.port }
+        enabled: true # Do not disable Consul Discovery Client 
+        prefer-ip-address: false # true means IP instead of hostname 
+        hostname: 127.0.0.1
+        service-name: $ { spring.application.name }
+      
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
