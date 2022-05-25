@@ -23,7 +23,9 @@ spring:
       discovery:
         prefer-ip-address: true
         instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-      
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
     
 management:
   endpoints:
