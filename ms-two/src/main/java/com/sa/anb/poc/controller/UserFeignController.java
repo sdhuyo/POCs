@@ -22,7 +22,7 @@ import com.sa.anb.poc.model.User;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping(value = "/api/feign/users/")
+@RequestMapping(value = "/api/feign/users")
 @RefreshScope
 @Slf4j
 public class UserFeignController {
@@ -30,7 +30,7 @@ public class UserFeignController {
 	@Autowired
 	private UserClient userClient;
 
-	@GetMapping
+	@GetMapping(value = "")
 	public ResponseEntity<List<User>> getAllUsers() {
 		try {
 			log.info("getAllUsers -- started");
@@ -58,7 +58,7 @@ public class UserFeignController {
 
 	}
 
-	@PostMapping
+	@PostMapping(value = "")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 		try {
 			log.info("createUser -- started");
@@ -73,7 +73,7 @@ public class UserFeignController {
 
 	}
 
-	@PutMapping
+	@PutMapping(value = "")
 	public ResponseEntity<User> updateUser(@RequestBody User user) {
 		try {
 			log.info("updateUser -- started");

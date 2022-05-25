@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.sa.anb.poc.model.User;
 
-@FeignClient(value = "${user.feign.client.value}", url = "${user.feign.client.url}")
+@FeignClient(name = "${user.feign.client.value}")
 public interface UserClient {
 
-	@GetMapping(value = "/users")
+	@GetMapping(value = "/api/users")
 	public List<User> getUsers();
 
-	@GetMapping(value = "/users/{id}")
+	@GetMapping(value = "/api/users/{id}")
 	public User getUserById(@PathVariable("id")String id);
 	
-	@PostMapping(value = "/users")
+	@PostMapping(value = "/api/users")
 	public User createUser(User user);
 	
-	@PutMapping(value = "/users")
+	@PutMapping(value = "/api/users")
 	public User updateUser(User user);
 	
-	@DeleteMapping(value = "/users/{id}")
+	@DeleteMapping(value = "/api/users/{id}")
 	public void deleteUserById(@PathVariable("id")String id);
 	
 }
