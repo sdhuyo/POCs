@@ -29,6 +29,10 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     
+feign:
+  hystrix:
+    enabled: true
+        
 management:
   endpoints:
     web:
