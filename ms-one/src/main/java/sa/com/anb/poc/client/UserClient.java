@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+
 import sa.com.anb.poc.model.User;
 
 @FeignClient(name = "${user.feign.client.value}")
@@ -28,5 +29,9 @@ public interface UserClient {
 	
 	@DeleteMapping(value = "/api/users/{id}")
 	public void deleteUserById(@PathVariable("id") String id);
-	
+
 }
+
+
+
+
